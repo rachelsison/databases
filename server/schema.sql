@@ -3,24 +3,26 @@ CREATE DATABASE chat;
 USE chat;
 
 CREATE TABLE messages (
-  msgID int(6),
+  msgID int(6) NOT NULL AUTO_INCREMENT,
   text varchar(140),
   userID int(3),
   date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  roomID int(2)
-
+  roomID int(2),
+  PRIMARY KEY(msgID)
   /* Describe your table here.*/
 );
 
 /* Create other tables and define schemas for them here! */
 CREATE TABLE users (
-  userID int(3),
-  username varchar(10)
+  userID int(3) NOT NULL AUTO_INCREMENT,
+  username varchar(10),
+  PRIMARY KEY(userID)
 );
 
 CREATE TABLE rooms (
-  roomID int(2),
-  roomname varchar(20)
+  roomID int(2) NOT NULL AUTO_INCREMENT,
+  roomname varchar(20),
+  PRIMARY KEY(roomID)
 );
 
 

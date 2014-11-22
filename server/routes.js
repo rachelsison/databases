@@ -7,5 +7,9 @@ for (var route in controllers) {
     .post(controllers[route].post);
 }
 
+// router.options('*', function(req, res){
+//   res.send("options");
+// });
+
 module.exports = router;
 

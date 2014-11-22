@@ -1,3 +1,4 @@
+//models
 var db = require('../db');
 
 
@@ -5,7 +6,10 @@ var db = require('../db');
 
 module.exports = {
   messages: {
-    get: function () {}, // a function which produces all the messages
+    get: function (req, res) {
+      db.dbAccess('getMessages', function(messages){
+        res.json({results: messages});
+    })}, // a function which produces all the messages
     post: function () {} // a function which can be used to insert a message into the database
   },
 

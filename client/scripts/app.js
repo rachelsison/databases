@@ -222,12 +222,12 @@ $(function() {
     },
     startSpinner: function(){
       $('.spinner img').show();
-      $('form input[type=submit]').attr('disabled', "true");
+      //$('form input[type=submit]').attr('disabled', "true");
     },
 
     stopSpinner: function(){
       $('.spinner img').fadeOut('fast');
-      $('form input[type=submit]').attr('disabled', null);
+      //$('form input[type=submit]').attr('disabled', null);
     }
   };
 }());

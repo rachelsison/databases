@@ -13,8 +13,8 @@ connection.connect();
 
 var queries = {
   'getMessages':"SELECT messages.text, users.username, messages.date, rooms.roomname FROM messages INNER JOIN users ON messages.userID=users.userID INNER JOIN rooms ON messages.roomID=rooms.roomID",
-  'fakeQuery': "Select * from rooms where roomname='hahaha'"
-
+  'fakeQuery': "Select * from rooms where roomname='hahaha'",
+  'getUsers': "SELECT * FROM users"
 
 };
 
@@ -79,6 +79,15 @@ var insertMessage = function(data){
 
 };
 
+var postUser = function(username){
+  connection.query('use chat');
+  connection.query('insert ignore into users (username) values ("'+ username +'")', function(err){
+    console.log(err);
+  });
+};
+
+postUser('peterlady');
+
 dbAccess('getMessages', console.log);
 
 // findUserID({
@@ -91,5 +100,7 @@ dbAccess('getMessages', console.log);
 
 module.exports.dbAccess = dbAccess;
 module.exports.queries = queries;
+module.exports.dbInsert = dbInsert;
+module.exports.postUser = postUser;
 
 //insert into yourmom (keys) values(mom, yourmom)

@@ -1,15 +1,15 @@
 var models = require('../models');
 var bluebird = require('bluebird');
-
+var sequelModel = require('../db/sequelize_index.js');
 
 
 module.exports = {
   messages: {
     get: function (req, res) {
-    models.messages.get(req, res);
+      sequelModel.messages.get(req, res);
     }, // a function which handles a get request for all messages
     post: function (req, res) {
-      models.messages.post(req, res);
+      sequelModel.messages.post(req, res);
     } // a function which handles posting a message to the database
   },
 
